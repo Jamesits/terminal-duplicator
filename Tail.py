@@ -97,12 +97,13 @@ class Tail(object):
                 self.size = _size
 
             curr_position = self.file_.tell()
-            line = self.file_.readline().decode(self.encoding)
-            if not line:
-                self.file_.seek(curr_position)
-            elif not line.endswith("\n"):
-                self.file_.seek(curr_position)
-            else:
+            line = self.file_.read().decode(self.encoding)
+            # if not line:
+            #     self.file_.seek(curr_position)
+            # elif not line.endswith("\n"):
+            #     self.file_.seek(curr_position)
+            # else:
+            if len(line) > 0:
                 self.callback(line)
             time.sleep(interval)
 
@@ -141,7 +142,7 @@ if __name__ == "__main__":
     if len(sys.argv) > 1:
         file = sys.argv[1]
         t = Tail(file)
-        t.register_callback(lambda x: print(x, end=""))
+        t.register_callback(lambda x: print(x))
         t.follow()
     else:
         print("Please specify file name.")
