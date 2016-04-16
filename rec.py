@@ -220,3 +220,8 @@ if __name__ == "__main__":
             },
         })
     signal.signal(signal.SIGWINCH, winch_handler)
+
+    # Display information
+    def usr1_handler(signal, frame):
+        print("ID: {}".format(up.name), file=sys.stderr)
+    signal.signal(signal.SIGUSR1, usr1_handler)

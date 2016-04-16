@@ -55,5 +55,6 @@ $(document)
     .on('submit', '#chat-form', function() {
       addNormalDanmu($("#chat-content").val());
       danmuListAppend($("#chat-content").val(), 'localhost');
+      $("#chat-content").val("");
       return false;
     });
