@@ -21,6 +21,7 @@ class Config:
         self.parser.add_argument("-e", "--env", dest='env', default="")
         self.parser.add_argument("-p", "--pid-file", dest='pid_file', default="/tmp/terminal-dup.pid")
         self.parser.add_argument("-u", "--url-prefix", dest='url_prefix', default="https://jamesits-terminal-duplicator.wilddogio.com")
+        self.parser.add_argument("-s", "--share-url-format", dest='share_url_format', default="https://jamesits.github.io/terminal-duplicator/?{}")
         self.parser.add_argument("-i", "--identifier", dest='identifier', default=None)
         self.config = vars(self.parser.parse_args())
 
@@ -223,5 +224,5 @@ if __name__ == "__main__":
 
     # Display information
     def usr1_handler(signal, frame):
-        print("ID: {}".format(up.name), file=sys.stderr)
+        print("ID: {}".format(up.name) + "\nShare URL: " + config["share_url_format"].format(up.name), file=sys.stderr)
     signal.signal(signal.SIGUSR1, usr1_handler)

@@ -15,7 +15,6 @@ fi
 # trap 'size_change' WINCH
 
 echo "Preparing files..."
-rm $DEST
 touch $DEST
 
 echo "Connecting..."
