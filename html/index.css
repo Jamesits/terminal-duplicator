@@ -1,0 +1,82 @@
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font: 28px/1.5 sans-serif;
+}
+
+#terminal-area {
+    display: flex;
+    position: relative;
+}
+
+#danmu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 200px;
+    bottom: 0;
+}
+
+#chat {
+    width: 200px;
+    order: 1;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+#danmu-panel {
+    flex: 1;
+}
+
+#chat-form {
+
+}
+
+table {
+    display: table;
+    width: 100%;
+}
+table thead, table tbody {
+    float: left;
+    width: 100%;
+}
+table tbody {
+    overflow: auto;
+    /* Giving height to make the tbody scroll */
+    /* Giving height dynamically is recommended */
+    height: 300px;
+}
+table tr {
+    width: 100%;
+    display: table;
+    /* Keeping the texts of both thead and tbody in same alignment */
+    text-align: left;
+}
+
+#delay::before {
+    content: "Delay: ";
+}
+
+#delay::after {
+    content: "s";
+}
+
+.terminal {
+    flex: 1;
+    order: 0;
+    border: #000 solid 5px;
+    font-family: "DejaVu Sans Mono", "Liberation Mono", monospace;
+    font-size: 20px;
+    color: #f0f0f0;
+    background: #000;
+}
+.terminal-cursor {
+    color: #000;
+    background: #f0f0f0;
+}
