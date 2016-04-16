@@ -16,7 +16,7 @@ $(document)
             danmuLoop : false,            //是否循环播放弹幕
             defaultFontColor : "#FFFFFF", //弹幕的默认颜色
             fontSizeSmall : 16,           //小弹幕的字号大小
-            FontSizeBig : 24,             //大弹幕的字号大小
+            FontSizeBig : 32,             //大弹幕的字号大小
             opacity : "0.9",              //默认弹幕透明度
             topBottonDanmuTime : 6000, // 顶部底部弹幕持续时间（毫秒）
             SubtitleProtection : false, //是否字幕保护
@@ -53,6 +53,8 @@ function danmuListAppend(content, user) {
 
 $(document)
     .on('submit', '#chat-form', function() {
+      if ($("#chat-content").val().length == 0)
+        return false;
       addNormalDanmu($("#chat-content").val());
       danmuListAppend($("#chat-content").val(), 'localhost');
       $("#chat-content").val("");
