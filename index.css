@@ -40,10 +40,6 @@ h1 {
     flex: 1;
 }
 
-#chat-form {
-
-}
-
 table {
     display: table;
     width: 100%;
@@ -98,4 +94,5 @@ table tr {
 
 #video {
     float: right;
+    clear: both;
 }
