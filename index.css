@@ -32,6 +32,10 @@ h1 {
     flex-direction: column;
 }
 
+@media only screen and (max-width: 960px) {
+   .mobile-hide{ display: none !important; }
+}
+
 #danmu-panel {
     flex: 1;
 }
