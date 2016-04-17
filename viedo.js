@@ -6,7 +6,7 @@ function openViedo() {
             audioChecked = true,
             username = '',
             members = 0,
-            videoDpi = '120p_1',
+            videoDpi = '720p_1',
             videoDevice = '',
             audioDevice = 'default',
             uid = undefined,

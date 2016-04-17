@@ -92,27 +92,6 @@
         $('#video').click(showVideo)
         $('#stdinBtn').click(showStdin)
 
-
-        var videoInputDevices = [],
-                audioInputDevices = [];
-
-        retrieveInputDevices();
-
-        function retrieveInputDevices() {
-            AgoraRTC.getDevices(function (devices) {
-                var index, length;
-                for (index = 0, length = devices.length; index < length; index += 1) {
-                    var d = devices[index];
-                    if (d['kind'] === 'audioinput') {
-                        audioInputDevices.push({id: d['deviceId'], text: d['label']});
-                    }
-
-                    if (d['kind'] === 'videoinput') {
-                        videoInputDevices.push({id: d['deviceId'], text: d['label']});
-                    }
-                }
-            });
-        }
     </script>
 
 
