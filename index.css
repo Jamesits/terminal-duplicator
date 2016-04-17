@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+html, body {
+    font-family: "Noto Sans", "Noto Sans CJK", "Hiragino Sans GB", "Microsoft YaHei", sans-serif
+}
+
 h1 {
     margin-bottom: 20px;
     font: 28px/1.5 sans-serif;
@@ -69,7 +73,7 @@ table tr {
     flex: 1;
     order: 0;
     border: #000 solid 5px;
-    font-family: "DejaVu Sans Mono", "Liberation Mono", monospace;
+    font-family: "DejaVu Sans Mono", "Liberation Mono", "Monaco", "Consolas", monospace !important;
     font-size: 20px;
     color: #f0f0f0;
     background: #000;
