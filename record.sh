@@ -8,12 +8,6 @@ if [ "$ONRECORD" = "true" ]; then
     exit 1
 fi
 
-# size_change() {
-#     echo "Warning: terminal size change!"
-# }
-#
-# trap 'size_change' WINCH
-
 echo "Preparing files..."
 touch $DEST
 
