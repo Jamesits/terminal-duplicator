@@ -1,12 +1,14 @@
 # Terminal Duplicator
 
-A program for sharing your terminal in real time through a web page.
+An easy way for sharing your terminal content in real time through a web page.
+终端内容网页实时直播，弹幕交互 + 视频。
 
 ## Author
  * Jamesits
- * WPH95
  * Joway
 
- ## License
+ Special thanks to WPH95!
 
- This software, except all extern library used by this software, is licensed under CC BY-NC-SA 4.0 International.
+## License
+
+This software, except all extern library used by this software, is licensed under CC BY-NC-SA 4.0 International.
