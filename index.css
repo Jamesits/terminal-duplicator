@@ -82,3 +82,12 @@ table tr {
     color: #000;
     background: #f0f0f0;
 }
+.code-video {
+    width: 360px;
+    height: 240px;
+}
+
+.code-video div {
+    width: 100%;
+    height: 100%
+}

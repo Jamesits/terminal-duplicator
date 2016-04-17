@@ -2,41 +2,120 @@
 <head>
     <title>Terminal</title>
     <link href="index.css" rel="stylesheet" type="text/css"/>
+
+
+    <link rel="stylesheet" href="vex/vex.css"/>
+    <link rel="stylesheet" href="vex/vex-theme-bottom-right-corner.css"/>
+
 </head>
 <body>
-    <h1>Terminal Emulator Plus Sharp Max Ultra Extreme Duo Pro</h1>
-    <div id="terminal-area">
-        <div id="danmu"></div>
-        <div id="chat">
-            <div id="status">
-                状态
-                <p id="delay">0</p>
-            </div>
-            <div id="danmu-panel">
-                弹幕
-                <table id="danmu-list">
-                    <thead>
-                        <tr>
-                            <td>内容</td>
-                            <td>用户</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr style="display:hidden">
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <form id="chat-form">
-                <input id="chat-content" type="text" placeholder="输入文字"></input>
-                <button type="submit">发送</button>
-            </form>
+<h1>Terminal Emulator Plus Sharp Max Ultra Extreme Duo Pro</h1>
+<button type="button" id="video">Video</button>
+<div id="terminal-area">
+    <div id="danmu"></div>
+    <div id="chat">
+        <div id="status">
+            状态
+            <p id="delay">0</p>
         </div>
-        <script src="term.js"></script>
-        <script src="https://cdn.wilddog.com/js/client/current/wilddog.js"></script>
-        <script src="//cdn.bootcss.com/jquery/2.2.1/jquery.js"></script>
-        <script src="jquery.danmu.min.js"></script>
-        <script src="danmu.js"></script>
-        <script src="index.js"></script>
-    </body>
+        <div id="danmu-panel">
+            弹幕
+            <table id="danmu-list">
+                <thead>
+                <tr>
+                    <td>内容</td>
+                    <td>用户</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr style="display:hidden">
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <form id="chat-form">
+            <input id="chat-content" type="text" placeholder="输入文字"></input>
+            <button type="submit">发送</button>
+        </form>
+    </div>
+    <script src="term.js"></script>
+    <script src="https://cdn.wilddog.com/js/client/current/wilddog.js"></script>
+    <script src="//cdn.bootcss.com/jquery/2.2.1/jquery.js"></script>
+    <script src="jquery.danmu.min.js"></script>
+    <script src="danmu.js"></script>
+    <script src="index.js"></script>
+
+    <script src="js/socket.io.js"></script>
+    <script src="js/adapter.js"></script>
+    <script src="./js/AgoraRTCSDK-1.2.0.js"></script>
+
+    <script src="js/vex.combined.min.js"></script>
+    <link rel="stylesheet" href="css/vex.css"/>
+    <link rel="stylesheet" href="css/vex-theme-bottom-right-corner.css"/>
+
+    <script src="viedo.js"></script>
+
+    <script>
+        vex.dialog.isEnabled = false;
+        vex.defaultOptions.className = 'vex-theme-bottom-right-corner';
+        function showVideo() {
+            if (vex.dialog.isEnabled) {
+                //
+            }
+            else {
+                var viedoHtml = '<div class="screen"><div class="code-video"><div class="" id="local"></div></div></div>';
+                vex.dialog.buttons.NO.text = 'Close';
+                vex.dialog.buttons.YES.text = 'Folding';
+                vex.dialog.open({
+                    message: 'Viedo',
+                    input: viedoHtml,
+                    callback: function (data) {
+                        vex.dialog.isEnabled = false;
+                    }
+                });
+                vex.dialog.isEnabled = true;
+                openViedo();
+            }
+        }
+
+        function showStdin() {
+            if ($('#stdin-editor').is(":hidden")) {
+                $('#stdin-editor').show();
+            }
+            else {
+                $('#stdin-editor').hide();
+            }
+        }
+        $('#stdin-editor').hide();
+
+
+        $('#video').click(showVideo)
+        $('#stdinBtn').click(showStdin)
+
+
+        var videoInputDevices = [],
+                audioInputDevices = [];
+
+        retrieveInputDevices();
+
+        function retrieveInputDevices() {
+            AgoraRTC.getDevices(function (devices) {
+                var index, length;
+                for (index = 0, length = devices.length; index < length; index += 1) {
+                    var d = devices[index];
+                    if (d['kind'] === 'audioinput') {
+                        audioInputDevices.push({id: d['deviceId'], text: d['label']});
+                    }
+
+                    if (d['kind'] === 'videoinput') {
+                        videoInputDevices.push({id: d['deviceId'], text: d['label']});
+                    }
+                }
+            });
+        }
+    </script>
+
+
+
+</body>
 </html>
