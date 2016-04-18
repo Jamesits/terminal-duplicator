@@ -5,6 +5,8 @@ An easy way for sharing your terminal content in real time through a web page.
 
 ![Demo](https://cloud.githubusercontent.com/assets/1297257/14592671/d9c9ac38-0553-11e6-8678-f964d7da793f.gif)
 
+This is a demo project winning 1st award on "2016 龙驰杯浙江高校 hackathon 大赛".
+
 ## Usage
 
 Dependency: Python 3 (can be invoked with `python3`, otherwise edit `record.sh`, requests
