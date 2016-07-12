@@ -9,16 +9,20 @@ This is a demo project winning 1st award on "2016 龙驰杯浙江高校 hackatho
 
 ## Usage
 
-Dependency: Python 3 (can be invoked with `python3`, otherwise edit `record.sh`, requests
-Clone `master` branch and run `record.sh`. 
+Dependency: 
+ * Python 3 (can be invoked with `python3`, otherwise edit `record.sh`)
+ * requests (`pip3 install requests`)
+
+Clone `master` branch and run `record.sh`. This will start a new shell with its content broadcasted to web. 
+
+URL can be displayed by sending USR1 to record process (`kill -USR1 \`cat /tmp/terminal-dup.pid\``). To be more user-friendly, `source rc.sh` in the end of your shell's rc script.
 
 We use Wilddog to deliver data. Online clients are limited to 50 for free account so you can register one yourself and change API URL (in web service and use `record.sh -u https://example.wilddogio.com/` to start service). 
 
 ## Author
  * Jamesits
  * Joway
-
-Special thanks to WPH95!
+ * WPH95!
 
 ## License
 
