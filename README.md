@@ -15,14 +15,14 @@ Dependency:
 
 Clone `master` branch and run `record.sh`. This will start a new shell with its content broadcasted to web. 
 
-URL can be displayed by sending USR1 to record process (`kill -USR1 \`cat /tmp/terminal-dup.pid\``). To be more user-friendly, `source rc.sh` in the end of your shell's rc script.
+URL can be displayed by sending USR1 to record process (```kill -USR1 `cat /tmp/terminal-dup.pid````). To be more user-friendly, `source rc.sh` in the end of your shell's rc script.
 
 We use Wilddog to deliver data. Online clients are limited to 50 for free account so you can register one yourself and change API URL (in web service and use `record.sh -u https://example.wilddogio.com/` to start service). 
 
 ## Author
  * Jamesits
  * Joway
- * WPH95!
+ * WPH95
 
 ## License
 
