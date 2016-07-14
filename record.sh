@@ -15,7 +15,12 @@ echo "Connecting..."
 python3 ./rec.py --lines `tput lines` --cols `tput cols` --env "`env | sed -e ':a' -e 'N' -e '$!ba' -e 's/\n/\&/g'`" --pid-file "/tmp/terminal-dup.pid" $@ &
 
 echo "Starting recording..."
-ONRECORD="true" script -q -f $DEST
+
+ONRECORD="true" script -qF $DEST
+if [ $? -ne 0 ]; then
+	# somehow script doesn't support "F" options
+	ONRECORD="true" script -q -f $DEST
+fi
 
 echo "[Exited]" >>$DEST
 
