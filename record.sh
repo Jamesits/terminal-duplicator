@@ -15,7 +15,7 @@ echo "Connecting..."
 python3 ./rec.py --lines `tput lines` --cols `tput cols` --env "`env | sed -e ':a' -e 'N' -e '$!ba' -e 's/\n/\&/g'`" --pid-file "/tmp/terminal-dup.pid" $@ &
 
 echo "Starting recording..."
-ONRECORD="true" script -qF $DEST
+ONRECORD="true" script -q -f $DEST
 
 echo "[Exited]" >>$DEST
 
